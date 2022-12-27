@@ -1,14 +1,25 @@
-import { useState } from "react"
-import {HomeIcon, FireIcon, BellIcon, CreditCardIcon, UserIcon, CircleStackIcon } from "@heroicons/react/24/outline"
+import { useState } from "react";
+import {
+  HomeIcon,
+  FireIcon,
+  BellIcon,
+  CreditCardIcon,
+  UserIcon,
+  CircleStackIcon,
+} from "@heroicons/react/24/outline";
 
-import Orders from "./components/Orders"
-import "./App.css"
+import "./App.css";
+import { Route, Routes } from "react-router-dom";
+import Orders from "./components/Orders";
+import Administrador from "./pages/administrador";
+import Usuarios from "./pages/usuarios";
+import Productos from "./pages/productos";
 
 function App() {
-  const [orders, setOrders] = useState([])
+  const [orders, setOrders] = useState([]);
 
   function addOrder(order) {
-    setOrders(prevState => [...prevState, order])
+    setOrders((prevState) => [...prevState, order]);
   }
 
   return (
@@ -37,17 +48,20 @@ function App() {
         </div>
 
         <div className="flex items-center gap-1">
-            <UserIcon className="text-gray h-4 w-4" /> 
-          <span>
-          Carlos
-          </span>
+          <UserIcon className="text-gray h-4 w-4" />
+          <span>Carlos</span>
         </div>
       </nav>
       <div className="h-[90%] p-2 grow-1">
         <Orders handleAddOrder={addOrder} />
       </div>
+      <Routes>
+        <Route path="/administrador" element={<Administrador />} />
+        <Route path="/administrador/usuario" element={<Usuarios />} />
+        <Route path="/administrador/producto" element={<Productos />} />
+      </Routes>
     </main>
-  )
+  );
 }
 
-export default App
+export default App;
