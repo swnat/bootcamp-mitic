@@ -1,4 +1,4 @@
-import NewMenuItem from "./NewMenuItem"
+import NewMenuItem from "./MenuItem"
 
 const products = [
   {

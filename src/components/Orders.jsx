@@ -1,14 +1,14 @@
 import { useState } from 'react'
-import NewOrder from "./NewOrder";
-import NewMenu from "./NewMenu";
+import Order from "./Order";
+import Menu from "./Menu";
 
 const orderInitialState = {
   items: [],
   total: 0
 }
 
-const Orders = () => {
-  const [order, setOrder] = useState(orderInitialState)
+const Orders = ({handleAddOrder}) => {
+  const [order, setOrder] = useState(orderInitialState);
 
   const addItemToOrder = (product) => {
     const productInOrder = order.items.find(item => item.product.id === product.id)
@@ -38,13 +38,19 @@ const Orders = () => {
     setOrder(orderInitialState)
   }
 
+  const handlePlaceOrder = () => {
+    handleAddOrder(order)
+    clearOrder()
+    //hacer push a ruta de pedidos
+  }
+
   return (
     <div className="createOrderContainer h-100 d-flex">
       <div className="menuContainer w-70 p-2">
-        <NewMenu onClickProduct={addItemToOrder} />
+        <Menu onClickProduct={addItemToOrder} />
       </div>
       <div className="orderContainer w-30 p-2">
-        <NewOrder order={order} onPlaceOrder={clearOrder} />
+        <Order order={order} onPlaceOrder={handlePlaceOrder} />
       </div>
     </div>
   )
