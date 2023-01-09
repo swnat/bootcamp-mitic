@@ -1,9 +1,13 @@
-@import url('https://fonts.googleapis.com/css?family=Inter');
+@import url("https://fonts.googleapis.com/css?family=Inter");
+
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
 body {
   /*font-family: 'Inter';*/
   margin: 0;
-  background-color: #323A45;
+  background-color: #323a45;
   height: 100vh;
 }
 
@@ -12,7 +16,7 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
@@ -31,6 +35,7 @@ hr {
 .btn:hover {
   color: #ffffff;
 }
+
 .btn.active {
   background-color: orangered;
   color: #ffffff;
@@ -81,7 +86,7 @@ hr {
 }
 
 .item {
-  background-color: #323A45;
+  background-color: #323a45;
   padding: 0.5rem;
   margin-bottom: 0.5rem;
   border-radius: 4px;
@@ -114,7 +119,6 @@ hr {
   border-radius: 50%;
   width: 36px;
   height: 36px;
-  
   display: flex;
   align-items: center;
   justify-content: center;
@@ -213,51 +217,51 @@ hr {
 }
 
 /* ===== Scrollbar CSS ===== */
-  /* Firefox */
-  * {
-    scrollbar-width: auto;
-    scrollbar-color: #9ca3af #212529;
-  }
+/* Firefox */
+* {
+  scrollbar-width: auto;
+  scrollbar-color: #9ca3af #212529;
+}
 
-  /* Chrome, Edge, and Safari */
-  *::-webkit-scrollbar {
-    width: 12px;
-  }
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 12px;
+}
 
-  *::-webkit-scrollbar-track {
-    background: #212529;
-  }
+*::-webkit-scrollbar-track {
+  background: #212529;
+}
 
-  *::-webkit-scrollbar-thumb {
-    background-color: #9ca3af4d;
-    opacity: 0.5;
-    border-radius: 10px;
-    border: 3px solid #212529;
-  }
+*::-webkit-scrollbar-thumb {
+  background-color: #9ca3af4d;
+  opacity: 0.5;
+  border-radius: 10px;
+  border: 3px solid #212529;
+}
 
-  @media (min-width: 768px) and (max-width: 1296px) {
-    .menuContainer {
-      width: 60%
-    }
-    .orderContainer {
-      width: 40%
-    }
+@media (min-width: 768px) and (max-width: 1296px) {
+  .menuContainer {
+    width: 60%;
   }
+  .orderContainer {
+    width: 40%;
+  }
+}
 
-  @media (max-width: 768px) {
-    .createOrderContainer {
-      flex-direction: column;
-    }
-    .menuContainer {
-      width: 100%
-    }
-    .orderContainer {
-      width: 100%
-    }
+@media (max-width: 768px) {
+  .createOrderContainer {
+    flex-direction: column;
   }
+  .menuContainer {
+    width: 100%;
+  }
+  .orderContainer {
+    width: 100%;
+  }
+}
 
-  @media (min-width: 1296px) {
-    .angry-grid > div {
-      width: 19%;
-    }
+@media (min-width: 1296px) {
+  .angry-grid > div {
+    width: 19%;
   }
+}

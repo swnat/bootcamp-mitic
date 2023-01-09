@@ -1,18 +1,20 @@
-
+import { TrashIcon } from "@heroicons/react/24/outline";
 const NewOrder = ({ order, onPlaceOrder }) => {
-
   const placeOrderHandler = () => {
-    onPlaceOrder()
-  }
+    onPlaceOrder();
+  };
 
-  if(order.items.length < 1){
+  if (order.items.length < 1) {
     return (
       <div className="mat justify-center">
-        <p className="text-muted-dark lead" style={{textAlign: 'center', fontSize: '14px'}}>
+        <p
+          className="text-muted-dark lead"
+          style={{ textAlign: "center", fontSize: "14px" }}
+        >
           Start creating a new order by adding items from the left menu.
         </p>
       </div>
-    )
+    );
   }
 
   return (
@@ -22,11 +24,11 @@ const NewOrder = ({ order, onPlaceOrder }) => {
         <small className="text-muted-dark">Jessica S.</small>
         <hr />
         <div className="orderTitles">
-        <span style={{width: '25%'}}>Qty.</span>
-          <span style={{width: '45%'}}>Description</span>
-          <span style={{width: '15%'}}>Price</span>
-          <button className="btn editItemBtb" style={{visibility: 'hidden'}}>
-            <i className="bi bi-trash3"></i>
+          <span style={{ width: "25%" }}>Qty.</span>
+          <span style={{ width: "45%" }}>Description</span>
+          <span style={{ width: "15%" }}>Price</span>
+          <button className="btn editItemBtn" style={{ visibility: "hidden" }}>
+            <TrashIcon className="text-gray h-4 2-4" />
           </button>
         </div>
       </div>
@@ -43,14 +45,21 @@ const NewOrder = ({ order, onPlaceOrder }) => {
                 <i className="bi bi-plus"></i>
               </button>
             </div>
-            <p style={{width: '45%', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap'}}>
+            <p
+              style={{
+                width: "45%",
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+                whiteSpace: "nowrap",
+              }}
+            >
               {orderItem.product.name}
             </p>
-            <p style={{width: '15%', textAlign: 'center'}}>
+            <p style={{ width: "15%", textAlign: "center" }}>
               {(orderItem.product.price * orderItem.amount).toLocaleString()}
             </p>
             <button className="btn editItemBtn">
-              <i className="bi bi-trash3"></i>
+              <TrashIcon className="text-gray h-4 2-4" />
             </button>
           </div>
         ))}
@@ -58,13 +67,20 @@ const NewOrder = ({ order, onPlaceOrder }) => {
 
       <div className="orderFooter">
         <small className="text-muted-dark">Total</small>
-        <p><small>Gs. </small>{order.total.toLocaleString()}</p>
+        <p>
+          <small>Gs. </small>
+          {order.total.toLocaleString()}
+        </p>
       </div>
-      <button type="button" className="btn btn-primary orderBtn" onClick={placeOrderHandler}>
-          Place Order
-        </button>
+      <button
+        type="button"
+        className="btn btn-primary orderBtn"
+        onClick={placeOrderHandler}
+      >
+        Place Order
+      </button>
     </div>
-  )
-}
+  );
+};
 
-export default NewOrder
+export default NewOrder;
