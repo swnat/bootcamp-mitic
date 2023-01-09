@@ -1,4 +1,5 @@
-import { TrashIcon } from "@heroicons/react/24/outline";
+import { TrashIcon, PlusIcon, MinusIcon } from "@heroicons/react/24/outline";
+
 const NewOrder = ({ order, onPlaceOrder }) => {
   const placeOrderHandler = () => {
     onPlaceOrder();
@@ -38,11 +39,11 @@ const NewOrder = ({ order, onPlaceOrder }) => {
           <div key={index} className="item">
             <div className="itemQty">
               <button className="btn editItemBtn">
-                <i className="bi bi-dash"></i>
+                <MinusIcon className="text-gray h-4 2-4" />
               </button>
               <p>{orderItem.amount}</p>
               <button className="btn editItemBtn">
-                <i className="bi bi-plus"></i>
+                <PlusIcon className="text-gray h-4 2-4" />
               </button>
             </div>
             <p
