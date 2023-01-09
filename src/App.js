@@ -1,4 +1,5 @@
 import { useState } from "react"
+import {HomeIcon, FireIcon, BellIcon, CreditCardIcon, UserIcon, CircleStackIcon } from "@heroicons/react/24/outline"
 
 import Orders from "./components/Orders"
 import "./App.css"
@@ -10,40 +11,39 @@ function App() {
     setOrders(prevState => [...prevState, order])
   }
 
-  console.table(orders)
-
   return (
-    <main className="d-flex flex-column h-100">
-      <nav className="navbar navbar-dark bg-dark d-flex align-items-center p-2">
-        <div className="d-flex align-items-center">
-          <p className="navbar-brand">Coffee Shop</p>
+    <main className="flex flex-col h-full">
+      <nav className="relative flex py-2 px-4 text-white bg-dark flex items-center justify-between">
+        <div className="flex items-center">
+          <p className="text-lg">Coffee Shop</p>
         </div>
 
-        <div className="menuItems d-flex align-items-center">
-          <button className="btn menuItem">
-            <i className="bi bi-house"></i>
-          </button>
+        <div className="menuItems flex items-center">
           <button className="btn menuItem active">
-            <i className="bi bi-card-checklist"></i>
+            <HomeIcon className="text-gray h-4 w-4" />
           </button>
           <button className="btn menuItem">
-            <i className="bi bi-fire"></i>
+            <CreditCardIcon className="text-gray h-4 w-4" />
           </button>
           <button className="btn menuItem">
-            <i className="bi bi-database"></i>
+            <FireIcon className="text-gray h-4 w-4" />
           </button>
           <button className="btn menuItem">
-            <i className="bi bi-bell"></i>
+            <CircleStackIcon className="text-gray h-4 w-4" />
+          </button>
+          <button className="btn menuItem">
+            <BellIcon className="text-gray h-4 w-4" />
           </button>
         </div>
 
-        <div className="d-flex align-items-center">
-          <span className="text-muted-dark">
-            <i className="bi bi-person"></i> Carlos
+        <div className="flex items-center gap-1">
+            <UserIcon className="text-gray h-4 w-4" /> 
+          <span>
+          Carlos
           </span>
         </div>
       </nav>
-      <div className="h-90 p-2 flex-grow-1">
+      <div className="h-[90%] p-2 grow-1">
         <Orders handleAddOrder={addOrder} />
       </div>
     </main>

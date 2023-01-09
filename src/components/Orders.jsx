@@ -45,7 +45,7 @@ const Orders = ({handleAddOrder}) => {
   }
 
   return (
-    <div className="createOrderContainer h-100 d-flex">
+    <div className="createOrderContainer h-full flex">
       <div className="menuContainer w-70 p-2">
         <Menu onClickProduct={addItemToOrder} />
       </div>
