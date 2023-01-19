@@ -1,59 +1,63 @@
-import { useState } from 'react'
+import { useState } from "react";
 import Order from "./Order";
 import Menu from "./Menu";
+import Layout from "./Layout";
 
 const orderInitialState = {
   items: [],
-  total: 0
-}
+  total: 0,
+};
 
-const Orders = ({handleAddOrder}) => {
+const Orders = ({ handleAddOrder }) => {
   const [order, setOrder] = useState(orderInitialState);
 
   const addItemToOrder = (product) => {
-    const productInOrder = order.items.find(item => item.product.id === product.id)
-    if(productInOrder) {
+    const productInOrder = order.items.find(
+      (item) => item.product.id === product.id
+    );
+    if (productInOrder) {
       setOrder({
-        items: order.items.map(item => {
-          if(item.product.id === productInOrder.product.id){
-            return {...item, amount: item.amount + 1}
+        items: order.items.map((item) => {
+          if (item.product.id === productInOrder.product.id) {
+            return { ...item, amount: item.amount + 1 };
           }
-          return item
+          return item;
         }),
-        total: order.total + product.price
-      })
-    }else {
+        total: order.total + product.price,
+      });
+    } else {
       const orderItem = {
         product,
-        amount: 1
-      }
+        amount: 1,
+      };
       setOrder({
         items: [...order.items, orderItem],
-        total: order.total + product.price
-      })
+        total: order.total + product.price,
+      });
     }
-  }
+  };
 
   const clearOrder = () => {
-    setOrder(orderInitialState)
-  }
+    setOrder(orderInitialState);
+  };
 
   const handlePlaceOrder = () => {
-    handleAddOrder(order)
-    clearOrder()
+    handleAddOrder(order);
+    clearOrder();
     //hacer push a ruta de pedidos
-  }
+  };
 
   return (
-    <div className="createOrderContainer h-full flex">
-      <div className="menuContainer w-70 p-2">
-        <Menu onClickProduct={addItemToOrder} />
-      </div>
-      <div className="orderContainer w-30 p-2">
-        <Order order={order} onPlaceOrder={handlePlaceOrder} />
-      </div>
-    </div>
-  )
-}
+    <Layout
+      rightEl={
+        <>
+          <h2 className="text-3xl font-bold dark:text-white">Menu</h2>
+          <Menu onClickProduct={addItemToOrder} />
+        </>
+      }
+      leftEl={<Order order={order} onPlaceOrder={handlePlaceOrder} />}
+    />
+  );
+};
 
 export default Orders;

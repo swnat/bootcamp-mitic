@@ -1,13 +1,17 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
 
-const Usuarios = props => {
-    return (
-        <div>
-            <h1>Usuarios</h1>
-        </div>
-    );
+import Layout from "../components/Layout";
+
+const Usuarios = (props) => {
+  return (
+    <Layout
+      rightEl={
+        <>
+          <h2 className="text-3xl font-bold">Usuarios</h2>
+        </>
+      }
+    />
+  );
 };
-
 
 export default Usuarios;
