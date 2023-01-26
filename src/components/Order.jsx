@@ -19,7 +19,7 @@ const NewOrder = ({ order, onPlaceOrder }) => {
   }
 
   return (
-    <div className="mat">
+    <>
       <div className="orderHeader">
         <p>Table 01</p>
         <small className="text-muted-dark">Jessica S.</small>
@@ -80,7 +80,7 @@ const NewOrder = ({ order, onPlaceOrder }) => {
       >
         Place Order
       </button>
-    </div>
+    </>
   );
 };
 
